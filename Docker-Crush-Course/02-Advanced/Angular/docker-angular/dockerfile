@@ -15,7 +15,7 @@ RUN npm ci
 COPY . .
 
 # Build the Angular app for production
-# The output will be in `/app/dist/my-angular-app/` (or your project name)
+# The output will be in `/app/dist/docker-angular/` (or your project name)
 RUN npm run build -- --configuration production
 
 # Stage 2: Serve the app with a lightweight web server
