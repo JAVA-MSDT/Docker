@@ -1,0 +1,23 @@
+services:
+  database:
+    image: postgres:13
+    container_name: docker-db
+    environment:
+      - POSTGRES_DB=docker_app
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    volumes: 
+      - postgres_data:/var/lib/postgresql/data
+  backend:
+    build: ./Docker-Demo
+    container_name: docker-backend
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://database:5432/docker_app
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=password
+    depends_on:
+      - database
+    ports:
+      - 8080:8080
+volumes:
+  postgres_data:
