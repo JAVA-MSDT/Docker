@@ -7,18 +7,12 @@ WORKDIR /app
 
 # STEP 3: Copy the local file from your computer into the container's current directory (./)
 # The first path is from your machine, the second is inside the container.
-COPY hello.java .
+COPY Hello.java .
 
 # STEP 4: Compile the Java file inside the container.
 # This creates the 'hello.class' bytecode file.
-RUN javac hello.java
+RUN javac Hello.java
 
 # STEP 5: Define the command to run when the container starts.
 # This executes our Java program.
-CMD ["java", "hello"]
-
-# Build the Docker image and tag it with a name (-t)
-docker build -t hello-java .
-
-# Run a container from the image
-docker run hello-java
+CMD ["java", "Hello"]
