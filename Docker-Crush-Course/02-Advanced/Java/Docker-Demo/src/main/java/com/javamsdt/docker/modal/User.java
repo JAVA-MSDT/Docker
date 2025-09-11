@@ -1,18 +1,18 @@
 package com.javamsdt.docker.modal;
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "users")
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "user_name")
     private String username;
-    @Column(name = "user_email")
     private String userEmail;
 
+    public User() {
+    }
+
+    public User(Integer id, String username, String userEmail) {
+        this.id = id;
+        this.username = username;
+        this.userEmail = userEmail;
+    }
 
     public Integer getId() {
         return id;
